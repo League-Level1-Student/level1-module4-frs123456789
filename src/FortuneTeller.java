@@ -23,20 +23,21 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
 
     JFrame frame = new JFrame();
 
-    int frameWidth = 500;
-    int frameHeight = 400;
+    int frameWidth = 681;
+    int frameHeight = 1000;
 
     FortuneTeller() throws Exception {
    	 // 1. Choose an image for your fortune teller and put it in your default package
-   	 fortuneTellerImage = ImageIO.read(getClass().getResource("fortune teller.png"));
+   	 fortuneTellerImage = ImageIO.read(getClass().getResource("fortell.jpg"));
    	 // 2. Adjust the frameWidth and frameHeight variables to fit your image nicely (doesn’t need a new line of code)
    	 // 4. add a mouse listener to the frame
-
+frame.addMouseListener(this);
+frame.setVisible(true);
     }
 
     static void begin() {
    	 // 3. Welcome the user. Give them a hint for the secret location.
-
+JOptionPane.showMessageDialog(null, "Welcome young comrade! This is your hint to find the secret location for this fortune (T)eller!");
     }
 
     @Override
@@ -47,20 +48,22 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
 
    	 // 6. Add the mouseY variable to the previous line so that it prints out too (no new line)
    	 // 7. Adjust your secret location co-ordinates here:
-   	 int secretLocationX = 0;
-   	 int secretLocationY = 0;
+   	 int secretLocationX = 75;
+   	 int secretLocationY = 890;
+   	 int secretLocationXend = 180;
+   	 int secretLocationYend = 990;
    	 /** If the mouse co-ordinates and secret location are close, we'll let them ask a question. */
    	 if (areClose(mouseX, secretLocationX) && areClose(mouseY, secretLocationY)) {
    		 // 8. Get the user to enter a question for the fortune teller
-
+String answer=JOptionPane.showInputDialog("I am going to tell your fortune! Do you play guitar?");
    		 // 9. Find a spooky sound and put it in your default package (freesound.org)
    		 // AudioClip sound = JApplet.newAudioClip(getClass().getResource("creepy-noise.wav"));
    		 // 10. Play the sound
-
+AudioClip sound = JApplet.newAudioClip(getClass().getResource("spookysound.wav"));
    		 // 11. Use the pause() method below to wait until your music has finished
-
+sound.play();
    		 // 12. Insert your completed Magic 8 ball code here
-
+Magic8Ball ball = new Magic8Ball();
    	 }
 
     }
