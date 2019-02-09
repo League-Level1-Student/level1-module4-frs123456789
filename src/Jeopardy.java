@@ -38,10 +38,15 @@ public class Jeopardy implements ActionListener {
 	private AudioClip sound;
 	JPanel insideLeftPanel = new JPanel();
 	JPanel insideRightPanel = new JPanel();
+	JPanel RightOfTheRightPanel = new JPanel();
 JButton fifthButton = new JButton();
 JButton sixthButton = new JButton();
 JButton seventhButton = new JButton();
 JButton eighthButton = new JButton();
+JButton ninethButton = new JButton();
+JButton tenthButton = new JButton();
+JButton eleventhButton = new JButton();
+JButton twelthButton = new JButton();
 
 	public static void main(String[] args) {
 		new Jeopardy().start();
@@ -50,11 +55,13 @@ JButton eighthButton = new JButton();
 	private void start() {
 		insideLeftPanel.setPreferredSize(new Dimension(75,300));
 		insideRightPanel.setPreferredSize(new Dimension(100,300));
+		RightOfTheRightPanel.setPreferredSize(new Dimension (75,300));
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		quizPanel = new JPanel();
 	quizPanel.add(insideLeftPanel);
 		quizPanel.add(insideRightPanel);
+		quizPanel.add(RightOfTheRightPanel);
 		// 1. Make the frame show up
 		frame.setVisible(true);
 		// 2. Give your frame a title
@@ -66,10 +73,14 @@ JButton eighthButton = new JButton();
 		JPanel header1;
 		header1 = createHeader("Countertops");
 		
+		JPanel header2;
+		header2 = createHeader("Music");
+		
 		insideRightPanel.add(header1);
 
 		// 4. Add the header component to the quizPanel
 		insideLeftPanel.add(header);
+		RightOfTheRightPanel.add(header2);
 		// 5. Add the quizPanel to the frame
 		frame.add(quizPanel);
 		// 6. Use the createButton method to set the value of firstButton
@@ -90,6 +101,10 @@ JButton eighthButton = new JButton();
 		sixthButton = createButton("$400");
 		seventhButton = createButton("$600");
 		eighthButton = createButton("$800");
+		ninethButton = createButton("$200");
+		tenthButton = createButton("$400");
+		eleventhButton = createButton("$600");
+		twelthButton = createButton("$800");
 		
 				
 		// 10. Add the secondButton to the quizPanel
@@ -106,10 +121,18 @@ JButton eighthButton = new JButton();
 		sixthButton.addActionListener(this);
 		seventhButton.addActionListener(this);
 		eighthButton.addActionListener(this);
+		ninethButton.addActionListener(this);
+		tenthButton.addActionListener(this);
+		eleventhButton.addActionListener(this);
+		twelthButton.addActionListener(this);
 		insideRightPanel.add(fifthButton);
 		insideRightPanel.add(sixthButton);
 		insideRightPanel.add(seventhButton);
 		insideRightPanel.add(eighthButton);
+		RightOfTheRightPanel.add(ninethButton);
+		RightOfTheRightPanel.add(tenthButton);
+		RightOfTheRightPanel.add(eleventhButton);
+		RightOfTheRightPanel.add(twelthButton);
 		// 12. Write the code to complete the actionPerformed() method below
 
 		// 13. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
@@ -142,7 +165,7 @@ JButton eighthButton = new JButton();
 	public void actionPerformed(ActionEvent e) {
 
 		// Remove this temporary message after testing:
-		JOptionPane.showMessageDialog(null, "pressed " + ((JButton) e.getSource()).getText() + " button");
+		
 
 		JButton buttonPressed = (JButton) e.getSource();
 		// If the buttonPressed was the firstButton
@@ -171,6 +194,18 @@ JButton eighthButton = new JButton();
 		}
 		if (buttonPressed == eighthButton) {
 			askQuestion("Is marble an elegant material?", "yes", 800);
+		}
+		if (buttonPressed == ninethButton) {
+			askQuestion("What is the most famous song from the wizard of oz?", "Somewhere Over The Rainbow", 200);
+		}
+		if(buttonPressed == tenthButton) {
+			askQuestion("Who played the 53rd SuperBowl halftime show?", "Maroon Five", 400);
+		}
+		if(buttonPressed == eleventhButton) {
+			askQuestion("How old was Elvis when he died?", "42", 200);
+		}
+		if(buttonPressed == twelthButton) {
+			askQuestion("How many flats are in the key of Aflat", "4", 800);
 		}
 
 		// Call the askQuestion() method
@@ -202,7 +237,7 @@ JButton eighthButton = new JButton();
 		// If the answer is correct
 		if (correctAnswer.equals(answer)) {
 			score += prizeMoney;
-			JOptionPane.showMessageDialog(null, "You are a correct SLAV!");
+			JOptionPane.showMessageDialog(null, "You are correct!");
 		}
 		// Increase the score by the prizeMoney
 
@@ -211,7 +246,7 @@ JButton eighthButton = new JButton();
 		// Otherwise
 		else {
 			score -= prizeMoney;
-			JOptionPane.showMessageDialog(null, "You are not a correct SLAV!");
+			JOptionPane.showMessageDialog(null, "You are not correct!");
 		}
 		// Decrement the score by the prizeMoney
 
