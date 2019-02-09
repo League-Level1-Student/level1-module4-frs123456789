@@ -18,44 +18,39 @@ public class TypingTutor implements KeyListener {
 		TypingTutor tt = new TypingTutor();
 		tt.setup();
 	}
+
 	JLabel jl = new JLabel();
 	JFrame jf = new JFrame("Type or Die");
+
 	void setup() {
-		
 
 		jf.setVisible(true);
 
 		currentLetter = generateRandomLetter();
-		
-		jl.setText(currentLetter+"");
+
+		jl.setText(currentLetter + "");
 		jf.add(jl);
 		jl.setFont(jl.getFont().deriveFont(28.0f));
 		jl.setHorizontalAlignment(JLabel.CENTER);
 		jf.addKeyListener(this);
-		
-		
-		
-		
-		
-		
+
 		jf.pack();
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		System.out.println("You Typed " + e.getKeyChar());
-		if(e.getKeyChar() == currentLetter) {
+		if (e.getKeyChar() == currentLetter) {
 			System.out.println("You are correct!");
 			jf.setBackground(Color.green);
-		}
-		else {
+		} else {
 			System.out.println("Y'all are wrong");
 			jf.setBackground(Color.RED);
 		}
@@ -65,6 +60,6 @@ public class TypingTutor implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		currentLetter = generateRandomLetter();
-		jl.setText(currentLetter+"");
+		jl.setText(currentLetter + "");
 	}
 }

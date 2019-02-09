@@ -39,27 +39,27 @@ public class Jeopardy implements ActionListener {
 	JPanel insideLeftPanel = new JPanel();
 	JPanel insideRightPanel = new JPanel();
 	JPanel RightOfTheRightPanel = new JPanel();
-JButton fifthButton = new JButton();
-JButton sixthButton = new JButton();
-JButton seventhButton = new JButton();
-JButton eighthButton = new JButton();
-JButton ninethButton = new JButton();
-JButton tenthButton = new JButton();
-JButton eleventhButton = new JButton();
-JButton twelthButton = new JButton();
+	JButton fifthButton = new JButton();
+	JButton sixthButton = new JButton();
+	JButton seventhButton = new JButton();
+	JButton eighthButton = new JButton();
+	JButton ninethButton = new JButton();
+	JButton tenthButton = new JButton();
+	JButton eleventhButton = new JButton();
+	JButton twelthButton = new JButton();
 
 	public static void main(String[] args) {
 		new Jeopardy().start();
 	}
 
 	private void start() {
-		insideLeftPanel.setPreferredSize(new Dimension(75,300));
-		insideRightPanel.setPreferredSize(new Dimension(100,300));
-		RightOfTheRightPanel.setPreferredSize(new Dimension (75,300));
+		insideLeftPanel.setPreferredSize(new Dimension(75, 300));
+		insideRightPanel.setPreferredSize(new Dimension(100, 300));
+		RightOfTheRightPanel.setPreferredSize(new Dimension(75, 300));
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		quizPanel = new JPanel();
-	quizPanel.add(insideLeftPanel);
+		quizPanel.add(insideLeftPanel);
 		quizPanel.add(insideRightPanel);
 		quizPanel.add(RightOfTheRightPanel);
 		// 1. Make the frame show up
@@ -69,13 +69,13 @@ JButton twelthButton = new JButton();
 		// 3. Create a JPanel variable to hold the header using the createHeader method
 		JPanel header;
 		header = createHeader("Guitars");
-		
+
 		JPanel header1;
 		header1 = createHeader("Countertops");
-		
+
 		JPanel header2;
 		header2 = createHeader("Music");
-		
+
 		insideRightPanel.add(header1);
 
 		// 4. Add the header component to the quizPanel
@@ -105,8 +105,7 @@ JButton twelthButton = new JButton();
 		tenthButton = createButton("$400");
 		eleventhButton = createButton("$600");
 		twelthButton = createButton("$800");
-		
-				
+
 		// 10. Add the secondButton to the quizPanel
 		insideLeftPanel.add(firstButton);
 		insideLeftPanel.add(secondButton);
@@ -143,7 +142,7 @@ JButton twelthButton = new JButton();
 		 */
 
 		frame.pack();
-	//	quizPanel.setLayout(new GridLayout(buttonCount + 1, 3));
+		// quizPanel.setLayout(new GridLayout(buttonCount + 1, 3));
 		frame.add(makeScorePanel(), BorderLayout.NORTH);
 		frame.setSize(Toolkit.getDefaultToolkit().getScreenSize().height,
 				Toolkit.getDefaultToolkit().getScreenSize().width);
@@ -165,7 +164,6 @@ JButton twelthButton = new JButton();
 	public void actionPerformed(ActionEvent e) {
 
 		// Remove this temporary message after testing:
-		
 
 		JButton buttonPressed = (JButton) e.getSource();
 		// If the buttonPressed was the firstButton
@@ -190,7 +188,7 @@ JButton twelthButton = new JButton();
 			askQuestion("What countertop is more durable? Marble or Manufactured Stone", "Manufactured Stone", 400);
 		}
 		if (buttonPressed == seventhButton) {
-			askQuestion("Can you crack a countertop?","yes", 600);
+			askQuestion("Can you crack a countertop?", "yes", 600);
 		}
 		if (buttonPressed == eighthButton) {
 			askQuestion("Is marble an elegant material?", "yes", 800);
@@ -198,13 +196,13 @@ JButton twelthButton = new JButton();
 		if (buttonPressed == ninethButton) {
 			askQuestion("What is the most famous song from the wizard of oz?", "Somewhere Over The Rainbow", 200);
 		}
-		if(buttonPressed == tenthButton) {
+		if (buttonPressed == tenthButton) {
 			askQuestion("Who played the 53rd SuperBowl halftime show?", "Maroon Five", 400);
 		}
-		if(buttonPressed == eleventhButton) {
+		if (buttonPressed == eleventhButton) {
 			askQuestion("How old was Elvis when he died?", "42", 200);
 		}
-		if(buttonPressed == twelthButton) {
+		if (buttonPressed == twelthButton) {
 			askQuestion("How many flats are in the key of Aflat", "4", 800);
 		}
 
